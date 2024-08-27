@@ -819,7 +819,7 @@ BEGIN
     d := geoc_delta(lon, lat);
     dlon := d->0;
     dlat := d->1;
-    return st_makepoint(lon + dlon,lat + dlat);
+    return st_makepoint(round(lon + dlon, 6), round(lat + dlat, 6));
 END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
